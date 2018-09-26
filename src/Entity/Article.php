@@ -54,6 +54,12 @@ class Article
 
     private $content;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Author", cascade={"all"}, fetch="EAGER")
+     */
+    private $author;
+
+
 
     public function getId()
 
@@ -103,6 +109,15 @@ class Article
 
         return $this;
 
+    }
+    public function getAuthor()
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(Author $author)
+    {
+        $this->author = $author;
     }
 
 }
